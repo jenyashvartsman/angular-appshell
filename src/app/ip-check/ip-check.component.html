@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <input type="text" placeholder="IP Address" class="ip-input" [(ngModel)]="ip">
+    <button class="ip-query" (click)="getIpData()">Query</button>
+  </div>
+
+  <!-- Terminal -->
+  <div class="terminal">
+    <pre>{{ipData}}</pre>
+  </div>
+</div>

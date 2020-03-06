@@ -1,18 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { IpApiService } from './ip-check/service/ip-api.service';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import { IpCheckComponent } from './ip-check/ip-check.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IpCheckComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [HttpClient, IpApiService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
